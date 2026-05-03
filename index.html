@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>🙂</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      text-align: center;
+      background: pink;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    img {
+      width: 250px;
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background: hotpink;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Just random thoughts 🙂</h2>
+
+  <img id="pic" src="https://ibb.co/m533FYJW">
+
+  <p id="text">You have a calm and nice vibe 🙂</p>
+
+  <button onclick="next()">Next</button>
+</div>
+
+<script>
+  let images = [
+    "https://ibb.co/m533FYJW",
+    "https://ibb.co/xcLWM8B",
+    "https://ibb.co/G4B28BwG",
+    "https://ibb.co/QvS0131d",
+    "https://ibb.co/B57Z5HZJ",
+    "https://ibb.co/m5kZZNnC"
+  ];
+
+  let texts = [
+    "You have a calm and nice vibe 🙂",
+    "Your smile looks really genuine 😊",
+    "You seem like a very kind person 🌸",
+    "There’s something naturally confident about you ✨",
+    "You look good in a simple and effortless way 🙂",
+    "You give off a really positive energy 🌼"
+  ];
+
+  let i = 0;
+
+  function next() {
+    i = (i + 1) % images.length;
+    document.getElementById("pic").src = images[i];
+    document.getElementById("text").innerText = texts[i];
+  }
+</script>
+
+</body>
+</html>
