@@ -9,7 +9,7 @@
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       text-align: center;
-      background: linear-gradient(135deg, #ffc0cb, #ffd6e0);
+      background: linear-gradient(135deg, #f8cdda, #fbd3e9);
       overflow: hidden;
     }
 
@@ -21,33 +21,40 @@
 
     h1 {
       font-weight: 500;
+      color: #333;
     }
 
     p {
-      color: #444;
+      color: #555;
       font-size: 16px;
+      line-height: 1.6;
     }
 
     img {
       width: 260px;
       border-radius: 20px;
       margin-top: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
       transition: 0.5s;
     }
 
     .btn {
       margin-top: 20px;
       padding: 10px 25px;
-      background: #ff6fa5;
+      background: #ff7aa2;
       color: white;
       border-radius: 25px;
       border: none;
       cursor: pointer;
+      transition: 0.3s;
     }
 
-    /* Floating Hearts */
-    .heart {
+    .btn:hover {
+      background: #ff5c8a;
+    }
+
+    /* Floating elements */
+    .float {
       position: fixed;
       bottom: -10px;
       font-size: 20px;
@@ -60,9 +67,9 @@
       to { transform: translateY(-110vh); }
     }
 
-    /* Fade Animation */
+    /* Fade animation */
     .fade {
-      animation: fade 0.5s;
+      animation: fade 0.6s;
     }
 
     @keyframes fade {
@@ -75,18 +82,23 @@
 <body>
 
 <div class="container">
-  <h1>Hey 🙂</h1>
-  <p>Just something simple… 🐱</p>
+  <h1>Hey 🌙</h1>
+  <p>
+    Sometimes… you notice people without a reason.<br>
+    Not loudly, not all at once—<br>
+    just in small, quiet moments ✨
+  </p>
 
   <img id="pic" src="https://i.ibb.co/m533FYJW/1.jpg">
 
-  <p id="text">You have a calm and nice vibe 🙂</p>
+  <p id="text">
+    There’s a kind of calm in the way you exist 🌿
+  </p>
 
-  <button class="btn" onclick="next()">Next</button>
+  <button class="btn" onclick="next()">Next →</button>
 </div>
 
 <script>
-  // Images
   let images = [
     "https://i.ibb.co/m533FYJW/1.jpg",
     "https://i.ibb.co/xcLWM8B/2.jpg",
@@ -96,20 +108,20 @@
     "https://i.ibb.co/m5kZZNnC/6.jpg"
   ];
 
-  // Texts
   let texts = [
-    "You have a calm and nice vibe 🙂",
-    "Your smile looks really genuine 😊",
-    "You seem like a very kind person 🌸",
-    "There’s something naturally confident about you ✨",
-    "You look good in a simple way 🙂",
-    "You give off a really positive energy 🌼"
+    "There’s a kind of calm in the way you exist 🌿",
+    "Some smiles don’t try hard… they just feel real 🌼",
+    "You seem like someone who makes ordinary moments softer ☁️",
+    "There’s a quiet confidence in you… not loud, just steady 🌙",
+    "Not everything needs to be said—some things are just felt ✨",
+    "You have a presence that doesn’t ask for attention, yet it stays 🌸"
   ];
 
   let i = 0;
 
   function next() {
     i = (i + 1) % images.length;
+
     let img = document.getElementById("pic");
     let txt = document.getElementById("text");
 
@@ -121,23 +133,26 @@
     txt.innerText = texts[i];
   }
 
-  // Auto change every 4 sec
-  setInterval(next, 4000);
+  // Auto change every 5 sec
+  setInterval(next, 5000);
 
-  // Floating hearts generator
-  function createHeart() {
-    let heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerText = ["💖","💕","💗","💓","💞"][Math.floor(Math.random()*5)];
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (5 + Math.random()*5) + "s";
+  // Floating aesthetic elements
+  function createFloat() {
+    let el = document.createElement("div");
+    el.classList.add("float");
 
-    document.body.appendChild(heart);
+    let items = ["✨","🌙","💫","🌸","☁️"];
+    el.innerText = items[Math.floor(Math.random()*items.length)];
 
-    setTimeout(() => heart.remove(), 10000);
+    el.style.left = Math.random() * 100 + "vw";
+    el.style.animationDuration = (6 + Math.random()*6) + "s";
+
+    document.body.appendChild(el);
+
+    setTimeout(() => el.remove(), 12000);
   }
 
-  setInterval(createHeart, 500);
+  setInterval(createFloat, 700);
 </script>
 
 </body>
