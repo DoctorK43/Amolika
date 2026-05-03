@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>🙂</title>
+  <title>🌙</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Premium Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Inter', sans-serif;
       text-align: center;
       background: linear-gradient(135deg, #f8cdda, #fbd3e9);
       overflow: hidden;
@@ -20,32 +23,37 @@
     }
 
     h1 {
-      font-weight: 500;
-      color: #333;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      color: #2d2d2d;
+      letter-spacing: 1px;
     }
 
     p {
       color: #555;
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.7;
+      max-width: 320px;
+      margin: auto;
     }
 
     img {
       width: 260px;
       border-radius: 20px;
-      margin-top: 20px;
+      margin-top: 25px;
       box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-      transition: 0.5s;
+      transition: 0.6s;
     }
 
     .btn {
-      margin-top: 20px;
-      padding: 10px 25px;
+      margin-top: 25px;
+      padding: 10px 28px;
       background: #ff7aa2;
       color: white;
-      border-radius: 25px;
+      border-radius: 30px;
       border: none;
       cursor: pointer;
+      font-size: 14px;
       transition: 0.3s;
     }
 
@@ -53,13 +61,13 @@
       background: #ff5c8a;
     }
 
-    /* Floating elements */
+    /* Floating aesthetic elements */
     .float {
       position: fixed;
       bottom: -10px;
-      font-size: 20px;
+      font-size: 18px;
       animation: floatUp linear infinite;
-      opacity: 0.7;
+      opacity: 0.6;
     }
 
     @keyframes floatUp {
@@ -67,13 +75,13 @@
       to { transform: translateY(-110vh); }
     }
 
-    /* Fade animation */
+    /* Smooth fade */
     .fade {
       animation: fade 0.6s;
     }
 
     @keyframes fade {
-      from {opacity: 0.3;}
+      from {opacity: 0.2;}
       to {opacity: 1;}
     }
   </style>
@@ -83,16 +91,16 @@
 
 <div class="container">
   <h1>Hey 🌙</h1>
+
   <p>
-    Sometimes… you notice people without a reason.<br>
-    Not loudly, not all at once—<br>
-    just in small, quiet moments ✨
+    Not everything we notice has a reason.<br>
+    Some things just stay… quietly ✨
   </p>
 
   <img id="pic" src="https://i.ibb.co/m533FYJW/1.jpg">
 
   <p id="text">
-    There’s a kind of calm in the way you exist 🌿
+    There’s a stillness in the way you exist 🌿
   </p>
 
   <button class="btn" onclick="next()">Next →</button>
@@ -109,12 +117,12 @@
   ];
 
   let texts = [
-    "There’s a kind of calm in the way you exist 🌿",
-    "Some smiles don’t try hard… they just feel real 🌼",
-    "You seem like someone who makes ordinary moments softer ☁️",
-    "There’s a quiet confidence in you… not loud, just steady 🌙",
-    "Not everything needs to be said—some things are just felt ✨",
-    "You have a presence that doesn’t ask for attention, yet it stays 🌸"
+    "There’s a stillness in the way you exist 🌿",
+    "Some people don’t try to be seen… yet they are 🌙",
+    "You feel like a quiet moment in a loud world ☁️",
+    "Not everything beautiful needs attention ✨",
+    "There’s something effortless about your presence 🌸",
+    "Some impressions don’t fade… they just stay 💫"
   ];
 
   let i = 0;
@@ -133,10 +141,7 @@
     txt.innerText = texts[i];
   }
 
-  // Auto change every 5 sec
-  setInterval(next, 5000);
-
-  // Floating aesthetic elements
+  // Floating elements
   function createFloat() {
     let el = document.createElement("div");
     el.classList.add("float");
@@ -152,7 +157,7 @@
     setTimeout(() => el.remove(), 12000);
   }
 
-  setInterval(createFloat, 700);
+  setInterval(createFloat, 800);
 </script>
 
 </body>
