@@ -2,63 +2,107 @@
 <html>
 <head>
   <title>🙂</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       margin: 0;
-      font-family: Arial;
+      font-family: 'Segoe UI', sans-serif;
       text-align: center;
-      background: pink;
+      background: linear-gradient(135deg, #ffc0cb, #ffd6e0);
+      overflow: hidden;
     }
 
     .container {
-      padding: 20px;
+      position: relative;
+      z-index: 2;
+      padding: 30px;
+    }
+
+    h1 {
+      font-weight: 500;
+    }
+
+    p {
+      color: #444;
+      font-size: 16px;
     }
 
     img {
-      width: 250px;
-      border-radius: 15px;
+      width: 260px;
+      border-radius: 20px;
       margin-top: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      transition: 0.5s;
     }
 
-    button {
+    .btn {
       margin-top: 20px;
-      padding: 10px 20px;
-      border: none;
-      background: hotpink;
+      padding: 10px 25px;
+      background: #ff6fa5;
       color: white;
-      border-radius: 10px;
+      border-radius: 25px;
+      border: none;
       cursor: pointer;
+    }
+
+    /* Floating Hearts */
+    .heart {
+      position: fixed;
+      bottom: -10px;
+      font-size: 20px;
+      animation: floatUp linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); }
+      to { transform: translateY(-110vh); }
+    }
+
+    /* Fade Animation */
+    .fade {
+      animation: fade 0.5s;
+    }
+
+    @keyframes fade {
+      from {opacity: 0.3;}
+      to {opacity: 1;}
     }
   </style>
 </head>
+
 <body>
 
 <div class="container">
-  <h2>Just random thoughts 🙂</h2>
+  <h1>Hey 🙂</h1>
+  <p>Just something simple… 🐱</p>
 
-  <img id="pic" src="https://ibb.co/m533FYJW">
+  <img id="pic" src="https://i.ibb.co/m533FYJW/1.jpg">
 
   <p id="text">You have a calm and nice vibe 🙂</p>
 
-  <button onclick="next()">Next</button>
+  <button class="btn" onclick="next()">Next</button>
 </div>
 
 <script>
+  // Images
   let images = [
-    "https://ibb.co/m533FYJW",
-    "https://ibb.co/xcLWM8B",
-    "https://ibb.co/G4B28BwG",
-    "https://ibb.co/QvS0131d",
-    "https://ibb.co/B57Z5HZJ",
-    "https://ibb.co/m5kZZNnC"
+    "https://i.ibb.co/m533FYJW/1.jpg",
+    "https://i.ibb.co/xcLWM8B/2.jpg",
+    "https://i.ibb.co/G4B28BwG/3.jpg",
+    "https://i.ibb.co/QvS0131d/4.jpg",
+    "https://i.ibb.co/B57Z5HZJ/5.jpg",
+    "https://i.ibb.co/m5kZZNnC/6.jpg"
   ];
 
+  // Texts
   let texts = [
     "You have a calm and nice vibe 🙂",
     "Your smile looks really genuine 😊",
     "You seem like a very kind person 🌸",
     "There’s something naturally confident about you ✨",
-    "You look good in a simple and effortless way 🙂",
+    "You look good in a simple way 🙂",
     "You give off a really positive energy 🌼"
   ];
 
@@ -66,9 +110,34 @@
 
   function next() {
     i = (i + 1) % images.length;
-    document.getElementById("pic").src = images[i];
-    document.getElementById("text").innerText = texts[i];
+    let img = document.getElementById("pic");
+    let txt = document.getElementById("text");
+
+    img.classList.remove("fade");
+    void img.offsetWidth;
+    img.classList.add("fade");
+
+    img.src = images[i];
+    txt.innerText = texts[i];
   }
+
+  // Auto change every 4 sec
+  setInterval(next, 4000);
+
+  // Floating hearts generator
+  function createHeart() {
+    let heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerText = ["💖","💕","💗","💓","💞"][Math.floor(Math.random()*5)];
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (5 + Math.random()*5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 10000);
+  }
+
+  setInterval(createHeart, 500);
 </script>
 
 </body>
